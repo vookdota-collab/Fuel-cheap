@@ -6,7 +6,7 @@
   <title>ООО "ДВ-ОЙЛ" — качественное топливо</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ===== Стили (без изменений, только добавим cursor: pointer для карточек) ===== */
+    /* ===== Все стили (без изменений, только добавим cursor:pointer для кнопок в шапке) ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
     body { background: #f9f9f9; color: #333; line-height: 1.6; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -17,9 +17,11 @@
     .logo h1 { font-size: 1.6rem; font-weight: 700; color: #1a1a1a; }
     .logo h1 span { color: #f57c00; }
     .header-right { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-    .tagline { color: #666; font-size: 0.95rem; background: #f0f0f0; padding: 6px 18px; border-radius: 30px; }
+    .tagline, .delivery-badge { cursor: pointer; transition: transform 0.2s; }
+    .tagline:hover, .delivery-badge:hover { transform: scale(1.05); }
+    .tagline { color: #666; font-size: 0.95rem; background: #f0f0f0; padding: 6px 18px; border-radius: 30px; text-decoration: none; }
     .tagline i { color: #f57c00; margin-right: 5px; }
-    .delivery-badge { background: #f57c00; color: white; padding: 6px 18px; border-radius: 30px; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(245, 124, 0, 0.25); }
+    .delivery-badge { background: #f57c00; color: white; padding: 6px 18px; border-radius: 30px; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(245, 124, 0, 0.25); text-decoration: none; }
     .delivery-badge i { margin-right: 6px; }
     .hero { background: linear-gradient(135deg, #ffffff 0%, #fff3e0 100%); border-radius: 30px; padding: 50px 40px; margin: 30px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 40px; box-shadow: 0 10px 40px rgba(245, 124, 0, 0.08); }
     .hero-text { flex: 1 1 300px; }
@@ -56,7 +58,6 @@
     .about-grid .item { display: flex; flex-direction: column; }
     .about-grid .item .label { font-size: 0.8rem; text-transform: uppercase; color: #999; letter-spacing: 0.5px; }
     .about-grid .item .value { font-weight: 600; color: #1a1a1a; font-size: 1.05rem; }
-    /* ===== НОВЫЙ БЛОК ПРЕИМУЩЕСТВ (без дублей) ===== */
     .advantages { background: white; border-radius: 30px; padding: 40px 35px; margin: 40px 0; box-shadow: 0 6px 30px rgba(0,0,0,0.04); }
     .advantages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 20px; }
     .advantage-item { text-align: center; }
@@ -64,12 +65,11 @@
     .advantage-item:hover i { transform: scale(1.05); background: #f57c00; color: white; }
     .advantage-item h4 { font-size: 1.2rem; margin-bottom: 8px; color: #1a1a1a; }
     .advantage-item p { color: #666; font-size: 0.95rem; }
-    /* ===== БЛОК ДОСТАВКИ (с единственным упоминанием точек и сроков) ===== */
     .delivery-info { background: linear-gradient(135deg, #ffffff, #fff3e0); border-radius: 30px; padding: 45px 40px; margin: 40px 0; box-shadow: 0 10px 40px rgba(245, 124, 0, 0.08); }
     .delivery-info h3 { font-size: 2rem; margin-bottom: 15px; color: #1a1a1a; }
     .delivery-info h3 i { color: #f57c00; margin-right: 10px; }
     .delivery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 25px; }
-    .delivery-item { background: white; border-radius: 20px; padding: 20px; box-shadow: 0 4px 16px rgba(0,0,0,0.04); border-left: 4px solid #f57c00; }
+    .delivery-item { background: white; border-radius: 20px; padding: 20px; box-shadow: 0 4px 16px rgba(0,0,0,0.04); border-left: 4px solid #f57c00; transition: box-shadow 0.3s; }
     .delivery-item i { color: #f57c00; font-size: 1.8rem; margin-bottom: 10px; }
     .delivery-item h4 { font-size: 1.1rem; margin-bottom: 5px; color: #1a1a1a; }
     .delivery-item p { color: #555; font-size: 0.95rem; }
@@ -133,8 +133,13 @@
       <h1>ДВ-<span>ОЙЛ</span></h1>
     </div>
     <div class="header-right">
-      <div class="tagline"><i class="fas fa-truck"></i> Доставка по городу</div>
-      <div class="delivery-badge"><i class="fas fa-map-marked-alt"></i> По всей России</div>
+      <!-- Теперь это активные ссылки с вызовом функции -->
+      <a href="javascript:void(0)" class="tagline" onclick="scrollToDelivery('city')">
+        <i class="fas fa-truck"></i> Доставка по городу
+      </a>
+      <a href="javascript:void(0)" class="delivery-badge" onclick="scrollToDelivery('russia')">
+        <i class="fas fa-map-marked-alt"></i> По всей России
+      </a>
     </div>
   </div>
 </header>
@@ -157,7 +162,7 @@
     </div>
   </section>
 
-  <!-- ТОВАРЫ (каждая карточка теперь кликабельна) -->
+  <!-- ТОВАРЫ -->
   <h2 class="section-title">Наше топливо</h2>
   <div class="fuel-grid">
     <div class="fuel-card" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'});">
@@ -196,7 +201,7 @@
     <span><strong>Важно:</strong> Цены на сайте указаны ориентировочно. Окончательная стоимость формируется в зависимости от региона доставки и текущих объёмов топлива на складе. Уточняйте актуальную цену в Telegram при оформлении заявки.</span>
   </div>
 
-  <!-- О КОМПАНИИ (без изменений) -->
+  <!-- О КОМПАНИИ -->
   <section class="about">
     <div class="about-content">
       <h3>О компании</h3>
@@ -217,7 +222,7 @@
     </div>
   </section>
 
-  <!-- НОВЫЙ БЛОК ПРЕИМУЩЕСТВ (без дублей о доставке) -->
+  <!-- ПРЕИМУЩЕСТВА -->
   <section class="advantages">
     <h3 style="font-size: 2rem; margin-bottom: 10px;"><i class="fas fa-medal" style="color: #f57c00; margin-right: 10px;"></i> Почему выбирают нас</h3>
     <div class="advantages-grid">
@@ -244,25 +249,25 @@
     </div>
   </section>
 
-  <!-- БЛОК УСЛОВИЙ ДОСТАВКИ (все детали здесь, без дублей) -->
-  <section class="delivery-info">
+  <!-- БЛОК ДОСТАВКИ (с якорями для подсветки) -->
+  <section class="delivery-info" id="delivery">
     <h3><i class="fas fa-truck"></i> Условия доставки</h3>
     <p style="color: #555; font-size: 1.1rem; margin-bottom: 10px;">Мы доставляем топливо в любой город Российской Федерации, включая Крым и Севастополь.</p>
     <div class="delivery-grid">
+      <div class="delivery-item" id="city">
+        <i class="fas fa-clock"></i>
+        <h4>Сроки</h4>
+        <p>От 1 часа до 24 часов с момента подтверждения заказа. Быстрая логистика по городу.</p>
+      </div>
+      <div class="delivery-item" id="russia">
+        <i class="fas fa-map-pin"></i>
+        <h4>География</h4>
+        <p>Доставляем по всей России, включая удалённые регионы и Крым. Более 200 точек присутствия.</p>
+      </div>
       <div class="delivery-item">
         <i class="fas fa-ruble-sign"></i>
         <h4>Стоимость</h4>
         <p>Доставка платная. Для каждого региона — фиксированная цена, согласовывается при оформлении. Окончательная цена топлива зависит от региона и текущих объёмов поставки.</p>
-      </div>
-      <div class="delivery-item">
-        <i class="fas fa-clock"></i>
-        <h4>Сроки</h4>
-        <p>От 1 часа до 24 часов с момента подтверждения заказа. Быстрая логистика по всей стране.</p>
-      </div>
-      <div class="delivery-item">
-        <i class="fas fa-map-pin"></i>
-        <h4>География</h4>
-        <p>Доставляем по всей России, включая удалённые регионы и Крым. Более 200 точек присутствия.</p>
       </div>
       <div class="delivery-item">
         <i class="fas fa-comment-dots"></i>
@@ -272,7 +277,7 @@
     </div>
   </section>
 
-  <!-- ФОРМА ЗАЯВКИ (без изменений) -->
+  <!-- ФОРМА ЗАЯВКИ -->
   <section class="form-section" id="form">
     <h3>Оформить заявку</h3>
     <p class="sub">Заполните поля и нажмите одну из кнопок ниже.</p>
@@ -318,6 +323,31 @@
 <div id="toast" class="toast"><i class="fas fa-check-circle"></i> Заявка скопирована!</div>
 
 <script>
+  // Функция для плавной прокрутки к блоку доставки и подсветки нужного пункта
+  function scrollToDelivery(targetId) {
+    const deliverySection = document.getElementById('delivery');
+    const targetElement = document.getElementById(targetId);
+    if (deliverySection && targetElement) {
+      // Плавно прокручиваем к секции доставки
+      deliverySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Подсвечиваем целевой элемент через 300 мс (чтобы скролл успел завершиться)
+      setTimeout(() => {
+        // Сначала убираем подсветку у всех элементов
+        document.querySelectorAll('.delivery-item').forEach(el => {
+          el.style.transition = 'box-shadow 0.3s';
+          el.style.boxShadow = 'none';
+        });
+        // Добавляем подсветку целевому элементу
+        targetElement.style.boxShadow = '0 0 0 4px #f57c00, 0 0 20px rgba(245, 124, 0, 0.5)';
+        // Через 2 секунды убираем подсветку
+        setTimeout(() => {
+          targetElement.style.boxShadow = 'none';
+        }, 2500);
+      }, 350);
+    }
+  }
+
+  // Остальные функции (showToast, getFormData, copyFormData, sendToTelegram) без изменений
   function showToast(message) {
     const toast = document.getElementById('toast');
     toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
@@ -358,4 +388,4 @@
   }
 </script>
 </body>
-</html>
+  </html>
