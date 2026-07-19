@@ -6,7 +6,7 @@
   <title>ООО "ДВ-ОЙЛ" — качественное топливо</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ===== ВСЕ СТИЛИ (без изменений) ===== */
+    /* ===== Стили (без изменений, только добавим cursor: pointer для карточек) ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
     body { background: #f9f9f9; color: #333; line-height: 1.6; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -35,14 +35,14 @@
     .section-title { font-size: 2.2rem; font-weight: 600; margin: 50px 0 30px; position: relative; display: inline-block; }
     .section-title::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 70px; height: 4px; background: #f57c00; border-radius: 4px; }
     .fuel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin: 30px 0 20px; }
-    .fuel-card { background: white; border-radius: 24px; padding: 25px 20px 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.06); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); text-align: center; border: 1px solid rgba(245, 124, 0, 0.05); }
+    .fuel-card { background: white; border-radius: 24px; padding: 25px 20px 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.06); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); text-align: center; border: 1px solid rgba(245, 124, 0, 0.05); cursor: pointer; }
     .fuel-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(245, 124, 0, 0.15); border-color: #f57c00; }
-    .fuel-card .icon { font-size: 2.8rem; color: #f57c00; margin-bottom: 10px; }
-    .fuel-card h3 { font-size: 1.5rem; font-weight: 700; color: #1a1a1a; }
-    .fuel-card .price { font-size: 2rem; font-weight: 700; color: #f57c00; margin: 10px 0; }
-    .fuel-card .price small { font-size: 1rem; font-weight: 400; color: #777; }
-    .fuel-card .note { font-size: 0.9rem; color: #888; margin-top: 8px; }
-    .fuel-card .delivery-note { font-size: 0.8rem; color: #999; margin-top: 5px; font-style: italic; }
+    .fuel-card .icon { font-size: 2.8rem; color: #f57c00; margin-bottom: 10px; pointer-events: none; }
+    .fuel-card h3 { font-size: 1.5rem; font-weight: 700; color: #1a1a1a; pointer-events: none; }
+    .fuel-card .price { font-size: 2rem; font-weight: 700; color: #f57c00; margin: 10px 0; pointer-events: none; }
+    .fuel-card .price small { font-size: 1rem; font-weight: 400; color: #777; pointer-events: none; }
+    .fuel-card .note { font-size: 0.9rem; color: #888; margin-top: 8px; pointer-events: none; }
+    .fuel-card .delivery-note { font-size: 0.8rem; color: #999; margin-top: 5px; font-style: italic; pointer-events: none; }
     .price-warning { background: #fff3e0; border-radius: 16px; padding: 15px 20px; margin: 10px 0 30px; border-left: 4px solid #f57c00; display: flex; align-items: center; gap: 12px; color: #555; font-size: 0.95rem; }
     .price-warning i { color: #f57c00; font-size: 1.4rem; }
     .about { background: white; border-radius: 30px; padding: 40px 35px; margin: 40px 0; box-shadow: 0 6px 30px rgba(0,0,0,0.04); border-left: 6px solid #f57c00; display: flex; flex-wrap: wrap; gap: 30px; align-items: center; }
@@ -56,6 +56,7 @@
     .about-grid .item { display: flex; flex-direction: column; }
     .about-grid .item .label { font-size: 0.8rem; text-transform: uppercase; color: #999; letter-spacing: 0.5px; }
     .about-grid .item .value { font-weight: 600; color: #1a1a1a; font-size: 1.05rem; }
+    /* ===== НОВЫЙ БЛОК ПРЕИМУЩЕСТВ (без дублей) ===== */
     .advantages { background: white; border-radius: 30px; padding: 40px 35px; margin: 40px 0; box-shadow: 0 6px 30px rgba(0,0,0,0.04); }
     .advantages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 20px; }
     .advantage-item { text-align: center; }
@@ -63,6 +64,7 @@
     .advantage-item:hover i { transform: scale(1.05); background: #f57c00; color: white; }
     .advantage-item h4 { font-size: 1.2rem; margin-bottom: 8px; color: #1a1a1a; }
     .advantage-item p { color: #666; font-size: 0.95rem; }
+    /* ===== БЛОК ДОСТАВКИ (с единственным упоминанием точек и сроков) ===== */
     .delivery-info { background: linear-gradient(135deg, #ffffff, #fff3e0); border-radius: 30px; padding: 45px 40px; margin: 40px 0; box-shadow: 0 10px 40px rgba(245, 124, 0, 0.08); }
     .delivery-info h3 { font-size: 2rem; margin-bottom: 15px; color: #1a1a1a; }
     .delivery-info h3 i { color: #f57c00; margin-right: 10px; }
@@ -155,31 +157,31 @@
     </div>
   </section>
 
-  <!-- ТОВАРЫ -->
+  <!-- ТОВАРЫ (каждая карточка теперь кликабельна) -->
   <h2 class="section-title">Наше топливо</h2>
   <div class="fuel-grid">
-    <div class="fuel-card">
+    <div class="fuel-card" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'});">
       <div class="icon"><i class="fas fa-tint"></i></div>
       <h3>АИ-92</h3>
       <div class="price">160 ₽ <small>/л</small></div>
       <div class="note">Октановое число 92</div>
       <div class="delivery-note"><i class="fas fa-truck"></i> цена без доставки</div>
     </div>
-    <div class="fuel-card">
+    <div class="fuel-card" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'});">
       <div class="icon"><i class="fas fa-tint"></i></div>
       <h3>АИ-95</h3>
       <div class="price">180 ₽ <small>/л</small></div>
       <div class="note">Премиум качество</div>
       <div class="delivery-note"><i class="fas fa-truck"></i> цена без доставки</div>
     </div>
-    <div class="fuel-card">
+    <div class="fuel-card" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'});">
       <div class="icon"><i class="fas fa-tint"></i></div>
       <h3>АИ-100</h3>
       <div class="price">200 ₽ <small>/л</small></div>
       <div class="note">Максимальная мощность</div>
       <div class="delivery-note"><i class="fas fa-truck"></i> цена без доставки</div>
     </div>
-    <div class="fuel-card">
+    <div class="fuel-card" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'});">
       <div class="icon"><i class="fas fa-oil-can"></i></div>
       <h3>ДТ</h3>
       <div class="price">180 ₽ <small>/л</small></div>
@@ -188,13 +190,13 @@
     </div>
   </div>
 
-  <!-- ПРЕДУПРЕЖДЕНИЕ (исправлено) -->
+  <!-- ПРЕДУПРЕЖДЕНИЕ О ЦЕНАХ -->
   <div class="price-warning">
     <i class="fas fa-exclamation-triangle"></i>
     <span><strong>Важно:</strong> Цены на сайте указаны ориентировочно. Окончательная стоимость формируется в зависимости от региона доставки и текущих объёмов топлива на складе. Уточняйте актуальную цену в Telegram при оформлении заявки.</span>
   </div>
 
-  <!-- О КОМПАНИИ -->
+  <!-- О КОМПАНИИ (без изменений) -->
   <section class="about">
     <div class="about-content">
       <h3>О компании</h3>
@@ -215,14 +217,14 @@
     </div>
   </section>
 
-  <!-- ПРЕИМУЩЕСТВА -->
+  <!-- НОВЫЙ БЛОК ПРЕИМУЩЕСТВ (без дублей о доставке) -->
   <section class="advantages">
     <h3 style="font-size: 2rem; margin-bottom: 10px;"><i class="fas fa-medal" style="color: #f57c00; margin-right: 10px;"></i> Почему выбирают нас</h3>
     <div class="advantages-grid">
       <div class="advantage-item">
         <i class="fas fa-thumbs-up"></i>
         <h4>Безупречная репутация</h4>
-        <p>Мы — компания с честным именем. Наш рейтинг 5.0, а 500+ клиентов рекомендуют нас.</p>
+        <p>Мы — компания с честным именем. Рейтинг 5.0, более 500 клиентов рекомендуют нас.</p>
       </div>
       <div class="advantage-item">
         <i class="fas fa-flask"></i>
@@ -230,19 +232,19 @@
         <p>Вся продукция сертифицирована, проходит лабораторный контроль и соответствует ГОСТ.</p>
       </div>
       <div class="advantage-item">
-        <i class="fas fa-clock"></i>
-        <h4>Быстрая доставка</h4>
-        <p>От 1 часа до суток в любую точку РФ. Более 200 точек присутствия по стране.</p>
+        <i class="fas fa-percent"></i>
+        <h4>Гибкая система скидок</h4>
+        <p>Индивидуальные условия для постоянных клиентов и крупных заказов.</p>
       </div>
       <div class="advantage-item">
-        <i class="fas fa-handshake"></i>
-        <h4>Индивидуальный подход</h4>
-        <p>Все детали заявки согласовываем в Telegram, учитываем ваш регион и потребности.</p>
+        <i class="fas fa-headset"></i>
+        <h4>Круглосуточная поддержка</h4>
+        <p>Мы всегда на связи, оперативно отвечаем на вопросы и помогаем с выбором.</p>
       </div>
     </div>
   </section>
 
-  <!-- УСЛОВИЯ ДОСТАВКИ (исправлен пункт "Стоимость") -->
+  <!-- БЛОК УСЛОВИЙ ДОСТАВКИ (все детали здесь, без дублей) -->
   <section class="delivery-info">
     <h3><i class="fas fa-truck"></i> Условия доставки</h3>
     <p style="color: #555; font-size: 1.1rem; margin-bottom: 10px;">Мы доставляем топливо в любой город Российской Федерации, включая Крым и Севастополь.</p>
@@ -250,12 +252,12 @@
       <div class="delivery-item">
         <i class="fas fa-ruble-sign"></i>
         <h4>Стоимость</h4>
-        <p>Доставка платная. Для каждого региона — фиксированная цена, которая согласовывается при оформлении заявки. Окончательная цена топлива зависит от региона и текущих объёмов поставки.</p>
+        <p>Доставка платная. Для каждого региона — фиксированная цена, согласовывается при оформлении. Окончательная цена топлива зависит от региона и текущих объёмов поставки.</p>
       </div>
       <div class="delivery-item">
         <i class="fas fa-clock"></i>
         <h4>Сроки</h4>
-        <p>Минимальное время доставки — от 1 часа. Максимальный срок — не более 24 часов с момента подтверждения заказа.</p>
+        <p>От 1 часа до 24 часов с момента подтверждения заказа. Быстрая логистика по всей стране.</p>
       </div>
       <div class="delivery-item">
         <i class="fas fa-map-pin"></i>
@@ -270,7 +272,7 @@
     </div>
   </section>
 
-  <!-- ФОРМА -->
+  <!-- ФОРМА ЗАЯВКИ (без изменений) -->
   <section class="form-section" id="form">
     <h3>Оформить заявку</h3>
     <p class="sub">Заполните поля и нажмите одну из кнопок ниже.</p>
@@ -356,4 +358,4 @@
   }
 </script>
 </body>
-        </html>
+</html>
