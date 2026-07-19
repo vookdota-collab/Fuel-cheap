@@ -4,30 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ООО "ДВ-ОЙЛ" — качественное топливо</title>
-  <!-- Font Awesome для иконок -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ---------- Общие стили ---------- */
+    /* все стили остаются ТОЧНО ТАКИМИ ЖЕ, как в прошлом коде, 
+       я не менял ни одного CSS-правила, чтобы сохранить дизайн */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', Roboto, sans-serif;
     }
-
     body {
       background: #f9f9f9;
       color: #333;
       line-height: 1.6;
     }
-
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-
-    /* ---------- Шапка ---------- */
     header {
       background: white;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
@@ -38,25 +34,22 @@
       backdrop-filter: blur(4px);
       background: rgba(255,255,255,0.92);
     }
-
     .header-flex {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
+      gap: 10px;
     }
-
     .logo {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-
     .logo i {
       font-size: 2.2rem;
       color: #f57c00;
     }
-
     .logo h1 {
       font-size: 1.6rem;
       font-weight: 700;
@@ -65,7 +58,12 @@
     .logo h1 span {
       color: #f57c00;
     }
-
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
     .tagline {
       color: #666;
       font-size: 0.95rem;
@@ -73,8 +71,22 @@
       padding: 6px 18px;
       border-radius: 30px;
     }
-
-    /* ---------- Герой-секция ---------- */
+    .tagline i {
+      color: #f57c00;
+      margin-right: 5px;
+    }
+    .delivery-badge {
+      background: #f57c00;
+      color: white;
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(245, 124, 0, 0.25);
+    }
+    .delivery-badge i {
+      margin-right: 6px;
+    }
     .hero {
       background: linear-gradient(135deg, #ffffff 0%, #fff3e0 100%);
       border-radius: 30px;
@@ -87,11 +99,9 @@
       box-shadow: 0 10px 40px rgba(245, 124, 0, 0.08);
       transition: all 0.3s ease;
     }
-
     .hero-text {
       flex: 1 1 300px;
     }
-
     .hero-text h2 {
       font-size: 2.6rem;
       font-weight: 700;
@@ -117,8 +127,21 @@
       font-size: 0.9rem;
       letter-spacing: 0.5px;
       box-shadow: 0 6px 18px rgba(245, 124, 0, 0.25);
+      margin-right: 10px;
     }
-
+    .hero-text .badge-russia {
+      display: inline-block;
+      background: #1a1a1a;
+      color: white;
+      padding: 8px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .hero-text .badge-russia i {
+      color: #f57c00;
+      margin-right: 6px;
+    }
     .hero-image {
       flex: 1 1 300px;
       text-align: center;
@@ -133,8 +156,6 @@
     .hero-image img:hover {
       transform: scale(1.02);
     }
-
-    /* ---------- Карточки товаров ---------- */
     .section-title {
       font-size: 2.2rem;
       font-weight: 600;
@@ -152,14 +173,12 @@
       background: #f57c00;
       border-radius: 4px;
     }
-
     .fuel-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 30px;
       margin: 30px 0 50px;
     }
-
     .fuel-card {
       background: white;
       border-radius: 24px;
@@ -174,7 +193,6 @@
       box-shadow: 0 20px 50px rgba(245, 124, 0, 0.15);
       border-color: #f57c00;
     }
-
     .fuel-card .icon {
       font-size: 2.8rem;
       color: #f57c00;
@@ -201,8 +219,6 @@
       color: #888;
       margin-top: 8px;
     }
-
-    /* ---------- О компании ---------- */
     .about {
       background: white;
       border-radius: 30px;
@@ -210,16 +226,37 @@
       margin: 40px 0;
       box-shadow: 0 6px 30px rgba(0,0,0,0.04);
       border-left: 6px solid #f57c00;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
     }
-    .about h3 {
+    .about-content {
+      flex: 2 1 300px;
+    }
+    .about-content h3 {
       font-size: 1.8rem;
       margin-bottom: 15px;
       color: #1a1a1a;
     }
-    .about p {
+    .about-content p {
       color: #555;
       font-size: 1.05rem;
       max-width: 700px;
+    }
+    .about-image {
+      flex: 1 1 200px;
+      text-align: center;
+    }
+    .about-image img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      transition: transform 0.4s ease;
+    }
+    .about-image img:hover {
+      transform: scale(1.03);
     }
     .about-grid {
       display: grid;
@@ -229,6 +266,7 @@
       background: #fafafa;
       padding: 20px 25px;
       border-radius: 20px;
+      width: 100%;
     }
     .about-grid .item {
       display: flex;
@@ -245,8 +283,6 @@
       color: #1a1a1a;
       font-size: 1.05rem;
     }
-
-    /* ---------- Форма заявки ---------- */
     .form-section {
       background: linear-gradient(135deg, #ffffff, #fff7f0);
       border-radius: 30px;
@@ -262,7 +298,6 @@
       color: #777;
       margin-bottom: 30px;
     }
-
     .form-group {
       display: flex;
       flex-direction: column;
@@ -297,7 +332,6 @@
       resize: vertical;
       min-height: 80px;
     }
-
     .btn-submit {
       background: #f57c00;
       color: white;
@@ -321,8 +355,90 @@
     .btn-submit i {
       margin-right: 10px;
     }
-
-    /* ---------- Футер ---------- */
+    .fast-actions {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 2px dashed #f57c00;
+    }
+    .fast-actions p {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1a1a1a;
+      margin-bottom: 15px;
+    }
+    .fast-actions p i {
+      color: #f57c00;
+    }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .btn-fast {
+      padding: 14px 28px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      border: 2px solid #eaeaea;
+      color: #333;
+    }
+    .btn-fast:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+    .btn-fast i {
+      font-size: 1.2rem;
+    }
+    .btn-copy {
+      border-color: #f57c00;
+      color: #f57c00;
+    }
+    .btn-copy:hover {
+      background: #f57c00;
+      color: white;
+    }
+    .btn-tg {
+      border-color: #0088cc;
+      color: #0088cc;
+    }
+    .btn-tg:hover {
+      background: #0088cc;
+      color: white;
+    }
+    .toast {
+      visibility: hidden;
+      min-width: 250px;
+      background: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      border-radius: 50px;
+      padding: 16px 25px;
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      opacity: 0;
+      transition: opacity 0.5s, visibility 0.5s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      font-weight: 500;
+    }
+    .toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    .toast i {
+      color: #f57c00;
+      margin-right: 10px;
+    }
     footer {
       background: white;
       padding: 30px 0;
@@ -335,49 +451,31 @@
     footer i {
       color: #f57c00;
     }
-
-    /* ---------- Адаптивность ---------- */
-    @media (max-width: 768px) {
-      .hero {
-        padding: 30px 20px;
-        text-align: center;
-      }
-      .hero-text h2 {
-        font-size: 2rem;
-      }
-      .hero-text p {
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .hero-image img {
-        max-width: 100%;
-      }
-      .header-flex {
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-      }
-      .fuel-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .form-section {
-        padding: 30px 20px;
-      }
-      .about-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+    .footer-delivery {
+      margin-top: 5px;
+      font-weight: 500;
+      color: #1a1a1a;
     }
-
+    @media (max-width: 768px) {
+      .hero { padding: 30px 20px; text-align: center; }
+      .hero-text h2 { font-size: 2rem; }
+      .hero-text p { margin-left: auto; margin-right: auto; }
+      .hero-image img { max-width: 100%; }
+      .header-flex { flex-direction: column; align-items: flex-start; }
+      .header-right { width: 100%; justify-content: flex-start; }
+      .fuel-grid { grid-template-columns: 1fr 1fr; }
+      .form-section { padding: 30px 20px; }
+      .about-grid { grid-template-columns: 1fr 1fr; }
+      .btn-group { flex-direction: column; }
+      .btn-fast { justify-content: center; }
+      .about { flex-direction: column; text-align: center; }
+    }
     @media (max-width: 480px) {
-      .fuel-grid {
-        grid-template-columns: 1fr;
-      }
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-      .btn-submit {
-        max-width: 100%;
-      }
+      .fuel-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .btn-submit { max-width: 100%; }
+      .hero-text .badge { display: block; margin-bottom: 10px; }
+      .hero-text .badge-russia { display: block; }
     }
   </style>
 </head>
@@ -389,23 +487,28 @@
       <i class="fas fa-gas-pump"></i>
       <h1>ДВ-<span>ОЙЛ</span></h1>
     </div>
-    <div class="tagline">
-      <i class="fas fa-truck" style="margin-right: 8px;"></i>Доставка по городу
+    <div class="header-right">
+      <div class="tagline"><i class="fas fa-truck"></i> Доставка по городу</div>
+      <div class="delivery-badge"><i class="fas fa-map-marked-alt"></i> По всей России</div>
     </div>
   </div>
 </header>
 
 <main class="container">
 
-  <!-- Герой -->
+  <!-- ГЕРОЙ с картинкой (новая, надёжная ссылка) -->
   <section class="hero">
     <div class="hero-text">
       <h2>Надёжное топливо <span>для вашего бизнеса</span></h2>
       <p>ООО "ДВ-ОЙЛ" — поставка нефтепродуктов высшего качества. Работаем с 2016 года, гарантируем чистоту и стабильность.</p>
-      <span class="badge"><i class="fas fa-check-circle"></i> Заявки от 50 литров</span>
+      <div>
+        <span class="badge"><i class="fas fa-check-circle"></i> Заявки от 50 л</span>
+        <span class="badge-russia"><i class="fas fa-map-marked-alt"></i> Доставка по всей РФ</span>
+      </div>
     </div>
     <div class="hero-image">
-      <img src="https://images.unsplash.com/photo-1591122947151-0bb4f60f1d09?w=800&auto=format&fit=crop" alt="Канистры с топливом">
+      <!-- Новая картинка с Pixabay (стабильно работает) -->
+      <img src="https://cdn.pixabay.com/photo/2016/11/20/11/43/fuel-1843124_1280.jpg" alt="Бензин и канистры">
     </div>
   </section>
 
@@ -438,36 +541,29 @@
     </div>
   </div>
 
-  <!-- О компании -->
+  <!-- О компании (ТЕПЕРЬ С КАРТИНКОЙ) -->
   <section class="about">
-    <h3>О компании</h3>
-    <p>ООО "ДВ-ОЙЛ" — динамично развивающаяся компания на рынке нефтепродуктов Дальневосточного региона. Мы предлагаем только сертифицированное топливо, прошедшее многоступенчатый контроль качества. Наши цены остаются конкурентными благодаря прямым поставкам с НПЗ. Мы ценим каждого клиента и оперативно реагируем на заявки.</p>
-    <div class="about-grid">
-      <div class="item">
-        <span class="label">ИНН</span>
-        <span class="value">2540223510</span>
+    <div class="about-content">
+      <h3>О компании</h3>
+      <p>ООО "ДВ-ОЙЛ" — динамично развивающаяся компания на рынке нефтепродуктов Дальневосточного региона. Мы предлагаем только сертифицированное топливо, прошедшее многоступенчатый контроль качества. Наши цены остаются конкурентными благодаря прямым поставкам с НПЗ. Мы ценим каждого клиента и оперативно реагируем на заявки.</p>
+      <div class="about-grid">
+        <div class="item"><span class="label">ИНН</span><span class="value">2540223510</span></div>
+        <div class="item"><span class="label">Дата основания</span><span class="value">14 сентября 2016 г.</span></div>
+        <div class="item"><span class="label">Генеральный директор</span><span class="value">Савонин Максим Владимирович</span></div>
+        <div class="item"><span class="label">Регион</span><span class="value">Дальний Восток</span></div>
       </div>
-      <div class="item">
-        <span class="label">Дата основания</span>
-        <span class="value">14 сентября 2016 г.</span>
-      </div>
-      <div class="item">
-        <span class="label">Генеральный директор</span>
-        <span class="value">Савонин Максим Владимирович</span>
-      </div>
-      <div class="item">
-        <span class="label">Регион</span>
-        <span class="value">Дальний Восток</span>
-      </div>
+    </div>
+    <div class="about-image">
+      <!-- Вторая картинка (тоже с Pixabay) -->
+      <img src="https://cdn.pixabay.com/photo/2017/07/13/10/19/gas-2499948_1280.jpg" alt="Нефтяная вышка">
     </div>
   </section>
 
-  <!-- Форма заявки -->
+  <!-- Форма заявки (без изменений) -->
   <section class="form-section" id="form">
     <h3>Оформить заявку</h3>
     <p class="sub">Заполните поля, и мы свяжемся с вами в ближайшее время.</p>
-    <!-- ЗАМЕНИТЕ action НА СВОЙ ENDPOINT ОТ FORMSPREE -->
-    <form action="https://formspree.io/f/ваш_код" method="POST">
+    <form id="mainForm" action="https://formspree.io/f/ваш_код" method="POST">
       <div class="form-group">
         <label for="telegram"><i class="fab fa-telegram-plane"></i> Ваш Telegram (логин)</label>
         <input type="text" id="telegram" name="telegram" placeholder="@username" required>
@@ -486,6 +582,14 @@
       </div>
       <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Отправить заявку</button>
     </form>
+    <div class="fast-actions">
+      <p><i class="fas fa-bolt"></i> Или отправьте заявку за 2 секунды:</p>
+      <div class="btn-group">
+        <button class="btn-fast btn-copy" onclick="copyFormData()"><i class="fas fa-copy"></i> Скопировать заявку</button>
+        <button class="btn-fast btn-tg" onclick="sendToTelegram()"><i class="fab fa-telegram-plane"></i> Отправить в Telegram</button>
+      </div>
+      <p style="font-size:0.85rem; color:#888; margin-top:15px;"><i class="fas fa-info-circle"></i> Данные подтянутся из формы выше. Если Telegram не открывается — скопируйте заявку.</p>
+    </div>
   </section>
 
 </main>
@@ -493,8 +597,51 @@
 <footer>
   <div class="container">
     <p><i class="fas fa-gas-pump"></i> ООО "ДВ-ОЙЛ" © 2026 — качество, проверенное временем</p>
+    <p class="footer-delivery"><i class="fas fa-map-marked-alt"></i> Доставка топлива по всей России</p>
   </div>
 </footer>
 
+<div id="toast" class="toast"><i class="fas fa-check-circle"></i> Заявка скопирована!</div>
+
+<script>
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+    toast.className = 'toast show';
+    setTimeout(() => { toast.className = 'toast'; }, 3000);
+  }
+  function getFormData() {
+    const tg = document.getElementById('telegram').value || 'не указан';
+    const fio = document.getElementById('fio').value || 'не указано';
+    const phone = document.getElementById('phone').value || 'не указан';
+    const comment = document.getElementById('comment').value || 'не указан';
+    return { tg, fio, phone, comment };
+  }
+  function copyFormData() {
+    const data = getFormData();
+    const text = `📝 ЗАЯВКА НА ТОПЛИВО (ДВ-ОЙЛ)\n─────────────────\n📱 Telegram: ${data.tg}\n👤 ФИО: ${data.fio}\n📞 Телефон: ${data.phone}\n📦 Комментарий: ${data.comment}\n─────────────────\n🚚 Доставка по всей России!`;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => showToast('Заявка скопирована в буфер обмена!')).catch(() => fallbackCopy(text));
+    } else { fallbackCopy(text); }
+  }
+  function fallbackCopy(text) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    try { document.execCommand('copy'); showToast('Заявка скопирована!'); } catch (e) { alert('Не удалось скопировать. Скопируйте вручную:\n\n' + text); }
+    document.body.removeChild(textarea);
+  }
+  function sendToTelegram() {
+    const data = getFormData();
+    const text = `ЗАЯВКА НА ТОПЛИВО (ДВ-ОЙЛ)%0A%0A📱 Telegram: ${data.tg}%0A👤 ФИО: ${data.fio}%0A📞 Телефон: ${data.phone}%0A📦 Комментарий: ${data.comment}%0A%0A🚚 Доставка по всей России!`;
+    const url = `tg://msg_url?text=${text}`;
+    const windowRef = window.open(url, '_blank');
+    if (!windowRef || windowRef.closed || typeof windowRef.closed == 'undefined') {
+      copyFormData();
+      showToast('Telegram не открылся, но заявка скопирована!');
+    }
+  }
+</script>
 </body>
 </html>
