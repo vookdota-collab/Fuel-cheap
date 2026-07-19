@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ООО "ДВ-ОЙЛ" — качественное топливо</title>
+  <!-- Font Awesome для иконок -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- Общие стили ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ---------- Шапка ---------- */
+    header {
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(4px);
+      background: rgba(255,255,255,0.92);
+    }
+
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo i {
+      font-size: 2.2rem;
+      color: #f57c00;
+    }
+
+    .logo h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .logo h1 span {
+      color: #f57c00;
+    }
+
+    .tagline {
+      color: #666;
+      font-size: 0.95rem;
+      background: #f0f0f0;
+      padding: 6px 18px;
+      border-radius: 30px;
+    }
+
+    /* ---------- Герой-секция ---------- */
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #fff3e0 100%);
+      border-radius: 30px;
+      padding: 50px 40px;
+      margin: 30px 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      box-shadow: 0 10px 40px rgba(245, 124, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .hero-text {
+      flex: 1 1 300px;
+    }
+
+    .hero-text h2 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 15px;
+    }
+    .hero-text h2 span {
+      color: #f57c00;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 500px;
+      margin-bottom: 20px;
+    }
+    .hero-text .badge {
+      display: inline-block;
+      background: #f57c00;
+      color: white;
+      padding: 8px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 6px 18px rgba(245, 124, 0, 0.25);
+    }
+
+    .hero-image {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+      transition: transform 0.4s ease;
+    }
+    .hero-image img:hover {
+      transform: scale(1.02);
+    }
+
+    /* ---------- Карточки товаров ---------- */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin: 50px 0 30px;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 70px;
+      height: 4px;
+      background: #f57c00;
+      border-radius: 4px;
+    }
+
+    .fuel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin: 30px 0 50px;
+    }
+
+    .fuel-card {
+      background: white;
+      border-radius: 24px;
+      padding: 25px 20px 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      text-align: center;
+      border: 1px solid rgba(245, 124, 0, 0.05);
+    }
+    .fuel-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(245, 124, 0, 0.15);
+      border-color: #f57c00;
+    }
+
+    .fuel-card .icon {
+      font-size: 2.8rem;
+      color: #f57c00;
+      margin-bottom: 10px;
+    }
+    .fuel-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .fuel-card .price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #f57c00;
+      margin: 10px 0;
+    }
+    .fuel-card .price small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #777;
+    }
+    .fuel-card .note {
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 8px;
+    }
+
+    /* ---------- О компании ---------- */
+    .about {
+      background: white;
+      border-radius: 30px;
+      padding: 40px 35px;
+      margin: 40px 0;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.04);
+      border-left: 6px solid #f57c00;
+    }
+    .about h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #1a1a1a;
+    }
+    .about p {
+      color: #555;
+      font-size: 1.05rem;
+      max-width: 700px;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 25px;
+      background: #fafafa;
+      padding: 20px 25px;
+      border-radius: 20px;
+    }
+    .about-grid .item {
+      display: flex;
+      flex-direction: column;
+    }
+    .about-grid .item .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: #999;
+      letter-spacing: 0.5px;
+    }
+    .about-grid .item .value {
+      font-weight: 600;
+      color: #1a1a1a;
+      font-size: 1.05rem;
+    }
+
+    /* ---------- Форма заявки ---------- */
+    .form-section {
+      background: linear-gradient(135deg, #ffffff, #fff7f0);
+      border-radius: 30px;
+      padding: 45px 40px;
+      margin: 50px 0;
+      box-shadow: 0 10px 40px rgba(245, 124, 0, 0.06);
+    }
+    .form-section h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .form-section .sub {
+      color: #777;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      font-weight: 600;
+      color: #333;
+      font-size: 0.95rem;
+    }
+    .form-group label i {
+      color: #f57c00;
+      margin-right: 8px;
+    }
+    .form-group input,
+    .form-group textarea {
+      padding: 14px 18px;
+      border: 2px solid #eaeaea;
+      border-radius: 16px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: white;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #f57c00;
+      box-shadow: 0 0 0 6px rgba(245, 124, 0, 0.08);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .btn-submit {
+      background: #f57c00;
+      color: white;
+      border: none;
+      padding: 16px 35px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 24px rgba(245, 124, 0, 0.25);
+      width: 100%;
+      max-width: 300px;
+      margin-top: 10px;
+    }
+    .btn-submit:hover {
+      background: #e06b00;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(245, 124, 0, 0.35);
+    }
+    .btn-submit i {
+      margin-right: 10px;
+    }
+
+    /* ---------- Футер ---------- */
+    footer {
+      background: white;
+      padding: 30px 0;
+      margin-top: 40px;
+      border-top: 1px solid #eee;
+      text-align: center;
+      color: #999;
+      font-size: 0.9rem;
+    }
+    footer i {
+      color: #f57c00;
+    }
+
+    /* ---------- Адаптивность ---------- */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 30px 20px;
+        text-align: center;
+      }
+      .hero-text h2 {
+        font-size: 2rem;
+      }
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-image img {
+        max-width: 100%;
+      }
+      .header-flex {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .fuel-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .form-section {
+        padding: 30px 20px;
+      }
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fuel-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .btn-submit {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-flex">
+    <div class="logo">
+      <i class="fas fa-gas-pump"></i>
+      <h1>ДВ-<span>ОЙЛ</span></h1>
+    </div>
+    <div class="tagline">
+      <i class="fas fa-truck" style="margin-right: 8px;"></i>Доставка по городу
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Герой -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Надёжное топливо <span>для вашего бизнеса</span></h2>
+      <p>ООО "ДВ-ОЙЛ" — поставка нефтепродуктов высшего качества. Работаем с 2016 года, гарантируем чистоту и стабильность.</p>
+      <span class="badge"><i class="fas fa-check-circle"></i> Заявки от 50 литров</span>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1591122947151-0bb4f60f1d09?w=800&auto=format&fit=crop" alt="Канистры с топливом">
+    </div>
+  </section>
+
+  <!-- Товары -->
+  <h2 class="section-title">Наше топливо</h2>
+  <div class="fuel-grid">
+    <div class="fuel-card">
+      <div class="icon"><i class="fas fa-tint"></i></div>
+      <h3>АИ-92</h3>
+      <div class="price">160 ₽ <small>/л</small></div>
+      <div class="note">Октановое число 92</div>
+    </div>
+    <div class="fuel-card">
+      <div class="icon"><i class="fas fa-tint"></i></div>
+      <h3>АИ-95</h3>
+      <div class="price">180 ₽ <small>/л</small></div>
+      <div class="note">Премиум качество</div>
+    </div>
+    <div class="fuel-card">
+      <div class="icon"><i class="fas fa-tint"></i></div>
+      <h3>АИ-100</h3>
+      <div class="price">200 ₽ <small>/л</small></div>
+      <div class="note">Максимальная мощность</div>
+    </div>
+    <div class="fuel-card">
+      <div class="icon"><i class="fas fa-oil-can"></i></div>
+      <h3>ДТ</h3>
+      <div class="price">180 ₽ <small>/л</small></div>
+      <div class="note">Дизельное топливо зимнее</div>
+    </div>
+  </div>
+
+  <!-- О компании -->
+  <section class="about">
+    <h3>О компании</h3>
+    <p>ООО "ДВ-ОЙЛ" — динамично развивающаяся компания на рынке нефтепродуктов Дальневосточного региона. Мы предлагаем только сертифицированное топливо, прошедшее многоступенчатый контроль качества. Наши цены остаются конкурентными благодаря прямым поставкам с НПЗ. Мы ценим каждого клиента и оперативно реагируем на заявки.</p>
+    <div class="about-grid">
+      <div class="item">
+        <span class="label">ИНН</span>
+        <span class="value">2540223510</span>
+      </div>
+      <div class="item">
+        <span class="label">Дата основания</span>
+        <span class="value">14 сентября 2016 г.</span>
+      </div>
+      <div class="item">
+        <span class="label">Генеральный директор</span>
+        <span class="value">Савонин Максим Владимирович</span>
+      </div>
+      <div class="item">
+        <span class="label">Регион</span>
+        <span class="value">Дальний Восток</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Форма заявки -->
+  <section class="form-section" id="form">
+    <h3>Оформить заявку</h3>
+    <p class="sub">Заполните поля, и мы свяжемся с вами в ближайшее время.</p>
+    <!-- ЗАМЕНИТЕ action НА СВОЙ ENDPOINT ОТ FORMSPREE -->
+    <form action="https://formspree.io/f/ваш_код" method="POST">
+      <div class="form-group">
+        <label for="telegram"><i class="fab fa-telegram-plane"></i> Ваш Telegram (логин)</label>
+        <input type="text" id="telegram" name="telegram" placeholder="@username" required>
+      </div>
+      <div class="form-group">
+        <label for="fio"><i class="fas fa-user"></i> ФИО</label>
+        <input type="text" id="fio" name="fio" placeholder="Иванов Иван Иванович" required>
+      </div>
+      <div class="form-group">
+        <label for="phone"><i class="fas fa-phone-alt"></i> Номер телефона</label>
+        <input type="tel" id="phone" name="phone" placeholder="+7 900 123-45-67" required>
+      </div>
+      <div class="form-group">
+        <label for="comment"><i class="fas fa-pen"></i> Желаемое топливо и объём</label>
+        <textarea id="comment" name="comment" placeholder="Например: АИ-95, 200 литров"></textarea>
+      </div>
+      <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Отправить заявку</button>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p><i class="fas fa-gas-pump"></i> ООО "ДВ-ОЙЛ" © 2026 — качество, проверенное временем</p>
+  </div>
+</footer>
+
+</body>
+</html>
