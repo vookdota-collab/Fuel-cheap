@@ -6,7 +6,7 @@
   <title>ООО "ДВ-ОЙЛ" — качественное топливо</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ===== Все стили (без изменений, только добавим cursor:pointer для кнопок в шапке) ===== */
+    /* ===== Все стили без изменений ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
     body { background: #f9f9f9; color: #333; line-height: 1.6; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -17,11 +17,11 @@
     .logo h1 { font-size: 1.6rem; font-weight: 700; color: #1a1a1a; }
     .logo h1 span { color: #f57c00; }
     .header-right { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-    .tagline, .delivery-badge { cursor: pointer; transition: transform 0.2s; }
+    .tagline, .delivery-badge { cursor: pointer; transition: transform 0.2s; text-decoration: none; }
     .tagline:hover, .delivery-badge:hover { transform: scale(1.05); }
-    .tagline { color: #666; font-size: 0.95rem; background: #f0f0f0; padding: 6px 18px; border-radius: 30px; text-decoration: none; }
+    .tagline { color: #666; font-size: 0.95rem; background: #f0f0f0; padding: 6px 18px; border-radius: 30px; }
     .tagline i { color: #f57c00; margin-right: 5px; }
-    .delivery-badge { background: #f57c00; color: white; padding: 6px 18px; border-radius: 30px; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(245, 124, 0, 0.25); text-decoration: none; }
+    .delivery-badge { background: #f57c00; color: white; padding: 6px 18px; border-radius: 30px; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(245, 124, 0, 0.25); }
     .delivery-badge i { margin-right: 6px; }
     .hero { background: linear-gradient(135deg, #ffffff 0%, #fff3e0 100%); border-radius: 30px; padding: 50px 40px; margin: 30px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 40px; box-shadow: 0 10px 40px rgba(245, 124, 0, 0.08); }
     .hero-text { flex: 1 1 300px; }
@@ -96,31 +96,67 @@
     .toast { visibility: hidden; min-width: 250px; background: #1a1a1a; color: #fff; text-align: center; border-radius: 50px; padding: 16px 25px; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 999; opacity: 0; transition: opacity 0.5s, visibility 0.5s; box-shadow: 0 10px 30px rgba(0,0,0,0.2); font-weight: 500; }
     .toast.show { visibility: visible; opacity: 1; }
     .toast i { color: #f57c00; margin-right: 10px; }
-    footer { background: white; padding: 30px 0; margin-top: 40px; border-top: 1px solid #eee; text-align: center; color: #999; font-size: 0.9rem; }
-    footer i { color: #f57c00; }
+    .footer { background: white; padding: 30px 0; margin-top: 40px; border-top: 1px solid #eee; text-align: center; color: #999; font-size: 0.9rem; }
+    .footer i { color: #f57c00; }
     .footer-delivery { margin-top: 5px; font-weight: 500; color: #1a1a1a; }
+
+    /* ===== МОБИЛЬНАЯ ВЕРСИЯ (уменьшенная шапка, широкий контент) ===== */
     @media (max-width: 768px) {
-      .hero { padding: 30px 20px; text-align: center; }
-      .hero-text h2 { font-size: 2rem; }
-      .hero-text p { margin-left: auto; margin-right: auto; }
-      .hero-image img { max-width: 100%; }
-      .header-flex { flex-direction: column; align-items: flex-start; }
-      .header-right { width: 100%; justify-content: flex-start; }
-      .fuel-grid { grid-template-columns: 1fr 1fr; }
-      .form-section { padding: 30px 20px; }
+      .container { padding: 0 10px; }
+      header { padding: 8px 0; }
+      .header-flex { gap: 5px; flex-direction: column; align-items: stretch; }
+      .logo { gap: 8px; }
+      .logo i { font-size: 1.4rem; }
+      .logo h1 { font-size: 1.1rem; }
+      .header-right { width: 100%; justify-content: space-between; gap: 6px; flex-wrap: nowrap; }
+      .tagline, .delivery-badge { font-size: 0.7rem; padding: 4px 10px; white-space: nowrap; }
+      .hero { padding: 20px 15px; }
+      .hero-text h2 { font-size: 1.8rem; }
+      .fuel-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+      .form-section { padding: 25px 15px; }
+      .about { padding: 20px 15px; flex-direction: column; text-align: center; }
       .about-grid { grid-template-columns: 1fr 1fr; }
-      .btn-group { flex-direction: column; }
-      .btn-fast { justify-content: center; }
-      .about { flex-direction: column; text-align: center; }
       .advantages-grid { grid-template-columns: 1fr 1fr; }
       .delivery-grid { grid-template-columns: 1fr; }
+      .btn-group { flex-direction: column; }
+      .btn-fast { justify-content: center; }
+      .price-warning { font-size: 0.85rem; padding: 12px 15px; }
     }
+
     @media (max-width: 480px) {
+      .container { padding: 0 6px; }
+      header { padding: 5px 0; }
+      .logo i { font-size: 1.2rem; }
+      .logo h1 { font-size: 0.95rem; }
+      .tagline, .delivery-badge { font-size: 0.6rem; padding: 3px 8px; }
+      .hero-text h2 { font-size: 1.5rem; }
       .fuel-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
       .advantages-grid { grid-template-columns: 1fr; }
-      .hero-text .badge { display: block; margin-bottom: 10px; }
-      .hero-text .badge-russia { display: block; }
+      .hero .badge, .hero .badge-russia { display: block; margin: 5px auto; }
+      .form-section { padding: 20px 10px; }
+      .delivery-item { padding: 15px; }
+    }
+
+    /* ===== НОВОЕ: уведомление о дублировании ===== */
+    .duplicate-note {
+      margin-top: 20px;
+      padding: 12px 16px;
+      background: #fff8e1;
+      border-radius: 16px;
+      border-left: 4px solid #f57c00;
+      font-size: 0.9rem;
+      color: #555;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .duplicate-note i {
+      color: #f57c00;
+      font-size: 1.2rem;
+    }
+    .duplicate-note strong {
+      color: #1a1a1a;
     }
   </style>
 </head>
@@ -133,7 +169,6 @@
       <h1>ДВ-<span>ОЙЛ</span></h1>
     </div>
     <div class="header-right">
-      <!-- Теперь это активные ссылки с вызовом функции -->
       <a href="javascript:void(0)" class="tagline" onclick="scrollToDelivery('city')">
         <i class="fas fa-truck"></i> Доставка по городу
       </a>
@@ -249,7 +284,7 @@
     </div>
   </section>
 
-  <!-- БЛОК ДОСТАВКИ (с якорями для подсветки) -->
+  <!-- БЛОК ДОСТАВКИ -->
   <section class="delivery-info" id="delivery">
     <h3><i class="fas fa-truck"></i> Условия доставки</h3>
     <p style="color: #555; font-size: 1.1rem; margin-bottom: 10px;">Мы доставляем топливо в любой город Российской Федерации, включая Крым и Севастополь.</p>
@@ -309,11 +344,17 @@
         <i class="fas fa-info-circle"></i> При отправке в Telegram откроется диалог с <strong>@dv_oiil</strong>. Все условия доставки и окончательную цену согласуем в переписке.
       </p>
     </div>
+
+    <!-- НОВОЕ УВЕДОМЛЕНИЕ О ДУБЛИРОВАНИИ -->
+    <div class="duplicate-note">
+      <i class="fas fa-clock"></i>
+      <span><strong>Важно:</strong> Если вам не ответили в течение суток, <strong>продублируйте</strong> сообщение в Telegram. Мы обязательно свяжемся с вами!</span>
+    </div>
   </section>
 
 </main>
 
-<footer>
+<footer class="footer">
   <div class="container">
     <p><i class="fas fa-gas-pump"></i> ООО "ДВ-ОЙЛ" © 2026 — качество, проверенное временем</p>
     <p class="footer-delivery"><i class="fas fa-map-marked-alt"></i> Доставка топлива по всей России, включая Крым</p>
@@ -328,18 +369,13 @@
     const deliverySection = document.getElementById('delivery');
     const targetElement = document.getElementById(targetId);
     if (deliverySection && targetElement) {
-      // Плавно прокручиваем к секции доставки
       deliverySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // Подсвечиваем целевой элемент через 300 мс (чтобы скролл успел завершиться)
       setTimeout(() => {
-        // Сначала убираем подсветку у всех элементов
         document.querySelectorAll('.delivery-item').forEach(el => {
           el.style.transition = 'box-shadow 0.3s';
           el.style.boxShadow = 'none';
         });
-        // Добавляем подсветку целевому элементу
         targetElement.style.boxShadow = '0 0 0 4px #f57c00, 0 0 20px rgba(245, 124, 0, 0.5)';
-        // Через 2 секунды убираем подсветку
         setTimeout(() => {
           targetElement.style.boxShadow = 'none';
         }, 2500);
@@ -347,7 +383,6 @@
     }
   }
 
-  // Остальные функции (showToast, getFormData, copyFormData, sendToTelegram) без изменений
   function showToast(message) {
     const toast = document.getElementById('toast');
     toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
