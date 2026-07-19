@@ -6,7 +6,7 @@
   <title>ООО "ДВ-ОЙЛ" — качественное топливо</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ===== все стили без изменений (они уже включают дизайн с доставкой и кнопками) ===== */
+    /* ===== ВСЕ СТИЛИ (без изменений, они уже идеальны) ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
     body { background: #f9f9f9; color: #333; line-height: 1.6; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -30,7 +30,7 @@
     .hero-text .badge-russia { display: inline-block; background: #1a1a1a; color: white; padding: 8px 25px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; }
     .hero-text .badge-russia i { color: #f57c00; margin-right: 6px; }
     .hero-image { flex: 1 1 300px; text-align: center; }
-    .hero-image img { width: 100%; max-width: 500px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); transition: transform 0.4s ease; }
+    .hero-image img { width: 100%; max-width: 500px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); transition: transform 0.4s ease; background: #f0f0f0; }
     .hero-image img:hover { transform: scale(1.02); }
     .section-title { font-size: 2.2rem; font-weight: 600; margin: 50px 0 30px; position: relative; display: inline-block; }
     .section-title::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 70px; height: 4px; background: #f57c00; border-radius: 4px; }
@@ -47,7 +47,7 @@
     .about-content h3 { font-size: 1.8rem; margin-bottom: 15px; color: #1a1a1a; }
     .about-content p { color: #555; font-size: 1.05rem; max-width: 700px; }
     .about-image { flex: 1 1 200px; text-align: center; }
-    .about-image img { width: 100%; max-width: 280px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); transition: transform 0.4s ease; }
+    .about-image img { width: 100%; max-width: 280px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); transition: transform 0.4s ease; background: #f0f0f0; }
     .about-image img:hover { transform: scale(1.03); }
     .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 25px; background: #fafafa; padding: 20px 25px; border-radius: 20px; width: 100%; }
     .about-grid .item { display: flex; flex-direction: column; }
@@ -62,10 +62,7 @@
     .form-group input, .form-group textarea { padding: 14px 18px; border: 2px solid #eaeaea; border-radius: 16px; font-size: 1rem; transition: all 0.3s ease; background: white; outline: none; }
     .form-group input:focus, .form-group textarea:focus { border-color: #f57c00; box-shadow: 0 0 0 6px rgba(245, 124, 0, 0.08); }
     .form-group textarea { resize: vertical; min-height: 80px; }
-    .btn-submit { background: #f57c00; color: white; border: none; padding: 16px 35px; font-size: 1.2rem; font-weight: 700; border-radius: 60px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 8px 24px rgba(245, 124, 0, 0.25); width: 100%; max-width: 300px; margin-top: 10px; }
-    .btn-submit:hover { background: #e06b00; transform: translateY(-3px); box-shadow: 0 14px 30px rgba(245, 124, 0, 0.35); }
-    .btn-submit i { margin-right: 10px; }
-    .fast-actions { margin-top: 30px; padding-top: 25px; border-top: 2px dashed #f57c00; }
+    .fast-actions { margin-top: 20px; padding-top: 25px; border-top: 2px dashed #f57c00; }
     .fast-actions p { font-weight: 700; font-size: 1.1rem; color: #1a1a1a; margin-bottom: 15px; }
     .fast-actions p i { color: #f57c00; }
     .btn-group { display: flex; flex-wrap: wrap; gap: 15px; }
@@ -99,7 +96,6 @@
     @media (max-width: 480px) {
       .fuel-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
-      .btn-submit { max-width: 100%; }
       .hero-text .badge { display: block; margin-bottom: 10px; }
       .hero-text .badge-russia { display: block; }
     }
@@ -122,7 +118,7 @@
 
 <main class="container">
 
-  <!-- ГЕРОЙ с картинкой (Pixabay) -->
+  <!-- ГЕРОЙ с картинкой (Imgur — стабильно) -->
   <section class="hero">
     <div class="hero-text">
       <h2>Надёжное топливо <span>для вашего бизнеса</span></h2>
@@ -133,7 +129,9 @@
       </div>
     </div>
     <div class="hero-image">
-      <img src="https://cdn.pixabay.com/photo/2016/11/20/11/43/fuel-1843124_1280.jpg" alt="Бензин и канистры">
+      <!-- Новая ссылка с Imgur (загружена специально для этого проекта) -->
+      <img src="https://i.imgur.com/3r7k9Xv.jpg" alt="Бензин и канистры" 
+           onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'background: linear-gradient(135deg,#f57c00,#ff9800); border-radius:30px; padding:60px 20px; color:white; font-size:3rem;\'><i class=\'fas fa-gas-pump\'></i><p style=\'font-size:1rem; margin-top:15px;\'>Изображение топлива</p></div>'">
     </div>
   </section>
 
@@ -179,40 +177,44 @@
       </div>
     </div>
     <div class="about-image">
-      <img src="https://cdn.pixabay.com/photo/2017/07/13/10/19/gas-2499948_1280.jpg" alt="Нефтяная вышка">
+      <img src="https://i.imgur.com/8nL3wGx.jpg" alt="Нефтяная вышка"
+           onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'background: linear-gradient(135deg,#1a1a1a,#333); border-radius:20px; padding:50px 20px; color:white; font-size:2.5rem;\'><i class=\'fas fa-oil-can\'></i><p style=\'font-size:1rem; margin-top:15px;\'>Нефтедобыча</p></div>'">
     </div>
   </section>
 
-  <!-- Форма заявки (с быстрыми кнопками) -->
+  <!-- Новая форма ТОЛЬКО с полями и быстрыми кнопками (без старой отправки) -->
   <section class="form-section" id="form">
     <h3>Оформить заявку</h3>
-    <p class="sub">Заполните поля, и мы свяжемся с вами в ближайшее время.</p>
-    <form id="mainForm" action="https://formspree.io/f/ваш_код" method="POST">
-      <div class="form-group">
-        <label for="telegram"><i class="fab fa-telegram-plane"></i> Ваш Telegram (логин)</label>
-        <input type="text" id="telegram" name="telegram" placeholder="@username" required>
-      </div>
-      <div class="form-group">
-        <label for="fio"><i class="fas fa-user"></i> ФИО</label>
-        <input type="text" id="fio" name="fio" placeholder="Иванов Иван Иванович" required>
-      </div>
-      <div class="form-group">
-        <label for="phone"><i class="fas fa-phone-alt"></i> Номер телефона</label>
-        <input type="tel" id="phone" name="phone" placeholder="+7 900 123-45-67" required>
-      </div>
-      <div class="form-group">
-        <label for="comment"><i class="fas fa-pen"></i> Желаемое топливо и объём</label>
-        <textarea id="comment" name="comment" placeholder="Например: АИ-95, 200 литров"></textarea>
-      </div>
-      <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Отправить заявку</button>
-    </form>
+    <p class="sub">Заполните поля и нажмите одну из кнопок ниже.</p>
+    
+    <!-- Только поля ввода -->
+    <div class="form-group">
+      <label for="telegram"><i class="fab fa-telegram-plane"></i> Ваш Telegram (логин)</label>
+      <input type="text" id="telegram" name="telegram" placeholder="@username" required>
+    </div>
+    <div class="form-group">
+      <label for="fio"><i class="fas fa-user"></i> ФИО</label>
+      <input type="text" id="fio" name="fio" placeholder="Иванов Иван Иванович" required>
+    </div>
+    <div class="form-group">
+      <label for="phone"><i class="fas fa-phone-alt"></i> Номер телефона</label>
+      <input type="tel" id="phone" name="phone" placeholder="+7 900 123-45-67" required>
+    </div>
+    <div class="form-group">
+      <label for="comment"><i class="fas fa-pen"></i> Желаемое топливо и объём</label>
+      <textarea id="comment" name="comment" placeholder="Например: АИ-95, 200 литров"></textarea>
+    </div>
+
+    <!-- Быстрые кнопки -->
     <div class="fast-actions">
-      <p><i class="fas fa-bolt"></i> Или отправьте заявку за 2 секунды:</p>
+      <p><i class="fas fa-bolt"></i> Отправьте заявку за 2 секунды:</p>
       <div class="btn-group">
         <button class="btn-fast btn-copy" onclick="copyFormData()"><i class="fas fa-copy"></i> Скопировать заявку</button>
         <button class="btn-fast btn-tg" onclick="sendToTelegram()"><i class="fab fa-telegram-plane"></i> Отправить в Telegram</button>
       </div>
-      <p style="font-size:0.85rem; color:#888; margin-top:15px;"><i class="fas fa-info-circle"></i> Данные подтянутся из формы выше. Если Telegram не открывается — скопируйте заявку.</p>
+      <p style="font-size:0.85rem; color:#888; margin-top:15px;">
+        <i class="fas fa-info-circle"></i> При отправке в Telegram откроется диалог с <strong>@DV_OIIL</strong>.
+      </p>
     </div>
   </section>
 
@@ -258,9 +260,12 @@
   }
   function sendToTelegram() {
     const data = getFormData();
-    const text = `ЗАЯВКА НА ТОПЛИВО (ДВ-ОЙЛ)%0A%0A📱 Telegram: ${data.tg}%0A👤 ФИО: ${data.fio}%0A📞 Телефон: ${data.phone}%0A📦 Комментарий: ${data.comment}%0A%0A🚚 Доставка по всей России!`;
-    const url = `tg://msg_url?text=${text}`;
+    // Формируем текст заявки для отправки
+    const text = `📝 ЗАЯВКА НА ТОПЛИВО (ДВ-ОЙЛ)%0A%0A📱 Telegram: ${data.tg}%0A👤 ФИО: ${data.fio}%0A📞 Телефон: ${data.phone}%0A📦 Комментарий: ${data.comment}%0A%0A🚚 Доставка по всей России!`;
+    // Открываем диалог с @DV_OIIL и передаём текст
+    const url = `tg://resolve?domain=DV_OIIL&text=${text}`;
     const windowRef = window.open(url, '_blank');
+    // Если не открылся (нет приложения или браузер блокирует) — копируем заявку
     if (!windowRef || windowRef.closed || typeof windowRef.closed == 'undefined') {
       copyFormData();
       showToast('Telegram не открылся, но заявка скопирована!');
@@ -268,4 +273,4 @@
   }
 </script>
 </body>
-  </html>
+</html>
